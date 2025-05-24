@@ -1,0 +1,44 @@
+/* create css variables */
+:root {
+    --text: #1F2937;
+    --background: #EDE9FE;
+    --backfround-variant: #273549;
+    --accent: #8B5CF6;
+
+}
+
+.darkmode {
+    --text: #EDE9FE;
+    --background: #1F2937;
+    --backfround-variant: #273549;
+    --accent: #8B5CF6;
+}
+
+body {
+    background: var(--background);
+
+}
+
+main {
+    margin-left: 200px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    span {
+        color: var(--accent);
+    }
+
+    button {
+        background: var(--accent);
+    }
+
+    h1 {
+        font-weight: 1800;
+        font-size: xx-large;
+        line-height: 40px;
+    }
+
+}
