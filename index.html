@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -17,11 +18,17 @@
         <h1>Generate a <br><span>random password</span>
         </h1>
         <p>Never use an insecure password again.</p>
-        <input type="text" class="length" placeholder="enter the password length">
-        <button>Generate Passwords</button>
+        <div class="inputs">
+
+            <input type="text" class="length" placeholder="Enter the password length">
+            <input type="text" class="numbers" placeholder="How many numbers">
+            <input type="text" class="special" placeholder="How many special charcters">
+
+        </div>
+        <button id="generate">Generate Passwords</button>
         <hr>
-        <p class="result"></p>
-        <p class="result"></p>
+        <p class="result1"></p>
+        <p class="result2"></p>
 
     </main>
 

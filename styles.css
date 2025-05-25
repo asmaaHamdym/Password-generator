@@ -1,6 +1,7 @@
 /* create css variables */
 :root {
     --text: #1F2937;
+    --secondary-text: #6B7280;
     --background: #EDE9FE;
     --backfround-variant: #273549;
     --accent: #8B5CF6;
@@ -9,6 +10,7 @@
 
 .darkmode {
     --text: #EDE9FE;
+    --secondary-text: #D5D4D8;
     --background: #1F2937;
     --backfround-variant: #273549;
     --accent: #8B5CF6;
@@ -36,9 +38,17 @@ main {
     }
 
     h1 {
-        font-weight: 1800;
-        font-size: xx-large;
-        line-height: 40px;
+        font-family: "Karla", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 80px;
+        line-height: 60px;
+        margin-bottom: 0;
+    }
+
+    p {
+        font-weight: 400;
     }
 
 }

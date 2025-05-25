@@ -91,3 +91,31 @@ const characters = [
   "?",
   "/",
 ];
+
+const generatePassword = () => {
+  let result1 = "";
+  let result2 = "";
+  let passwordLength = 15;
+  if (lengthInput.value) {
+    passwordLength = lengthInput.value;
+  }
+  for (i = 0; i <= passwordLength; i++) {
+    idx1 = Math.floor(Math.random() * characters.length);
+    idx2 = Math.floor(Math.random() * characters.length);
+
+    result1 += characters[idx1];
+    result2 += characters[idx2];
+  }
+  result1Element.textContent = result1;
+  result2Element.textContent = result2;
+};
+
+const lengthInput = document.querySelector(".length");
+const nubersInput = document.querySelector(".numbers");
+const specialInput = document.querySelector(".special");
+
+let result1Element = document.querySelector(".result1");
+let result2Element = document.querySelector(".result2");
+
+const generateBtn = document.getElementById("generate");
+generateBtn.addEventListener("click", generatePassword);
