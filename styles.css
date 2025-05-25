@@ -35,8 +35,13 @@ main {
     }
 
     button {
+        font-size: larger;
+        font-weight: bold;
+        margin: 30px 0;
         background: var(--accent);
         color: var(--background);
+        padding: 10px 30px;
+        border-radius: 10px;
 
     }
 
@@ -64,6 +69,8 @@ main {
     }
 
     .password {
+        width: fit-content;
+        height: 30px;
         background: var(--backfround-variant);
         color: var(--result);
         margin: 10px;
