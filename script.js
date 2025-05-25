@@ -95,23 +95,40 @@ const characters = [
 const generatePassword = () => {
   let result1 = "";
   let result2 = "";
-  let passwordLength = 15;
-  if (lengthInput.value) {
-    passwordLength = lengthInput.value;
-  }
-  for (i = 0; i <= passwordLength; i++) {
-    idx1 = Math.floor(Math.random() * characters.length);
-    idx2 = Math.floor(Math.random() * characters.length);
+  let passwordLength = lengthInput.value ? parseInt(lengthInput.value) : 15;
+
+  const numbersCount = numbersInput.value ? parseInt(numbersInput.value) : 0;
+  const specialCount = specialInput.value ? parseInt(specialInput.value) : 0;
+
+  const regularCharsCount = passwordLength - numbersCount - specialCount;
+
+  for (i = 0; i < regularCharsCount; i++) {
+    idx1 = Math.floor(Math.random() * characters.slice(0, 52).length);
+    idx2 = Math.floor(Math.random() * characters.slice(0, 52).length);
 
     result1 += characters[idx1];
     result2 += characters[idx2];
+  }
+  for (j = 0; j < numbersInput.value; j++) {
+    idx1 = Math.floor(Math.random() * characters.slice(52, 62).length);
+    idx2 = Math.floor(Math.random() * characters.slice(52, 62).length);
+
+    result1 += characters[idx1 + 52];
+    result2 += characters[idx2 + 52];
+  }
+  for (k = 0; k < specialInput.value; k++) {
+    idx1 = Math.floor(Math.random() * characters.slice(62).length);
+    idx2 = Math.floor(Math.random() * characters.slice(62).length);
+
+    result1 += characters[idx1 + 62];
+    result2 += characters[idx2 + 62];
   }
   result1Element.textContent = result1;
   result2Element.textContent = result2;
 };
 
 const lengthInput = document.querySelector(".length");
-const nubersInput = document.querySelector(".numbers");
+const numbersInput = document.querySelector(".numbers");
 const specialInput = document.querySelector(".special");
 
 let result1Element = document.querySelector(".result1");
