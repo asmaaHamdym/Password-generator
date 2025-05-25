@@ -91,7 +91,12 @@ const characters = [
   "?",
   "/",
 ];
-
+function copyText(e) {
+  if (e.target.textContent) {
+    navigator.clipboard.writeText(e.target.textContent);
+    alert("Copied! " + e.target.textContent);
+  }
+}
 const generatePassword = () => {
   let result1 = "";
   let result2 = "";
@@ -133,6 +138,9 @@ const specialInput = document.querySelector(".special");
 
 let result1Element = document.querySelector(".result1");
 let result2Element = document.querySelector(".result2");
+
+const passwordElement = document.querySelector(".results");
+passwordElement.addEventListener("click", copyText);
 
 const generateBtn = document.getElementById("generate");
 generateBtn.addEventListener("click", generatePassword);
