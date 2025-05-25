@@ -1,10 +1,11 @@
 /* create css variables */
 :root {
-    --text: #1F2937;
+    --text: #111827;
     --secondary-text: #6B7280;
     --background: #EDE9FE;
     --backfround-variant: #273549;
     --accent: #8B5CF6;
+    --result: #A78BFA;
 
 }
 
@@ -35,6 +36,8 @@ main {
 
     button {
         background: var(--accent);
+        color: var(--background);
+
     }
 
     h1 {
@@ -45,10 +48,27 @@ main {
         font-size: 80px;
         line-height: 60px;
         margin-bottom: 0;
+        color: var(--text);
     }
 
     p {
+        color: var(--secondary-text);
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
         font-weight: 400;
+        font-style: normal;
+    }
+
+    .results {
+        display: flex;
+    }
+
+    .password {
+        background: var(--backfround-variant);
+        color: var(--result);
+        margin: 10px;
+        padding: 10px 40px;
+        border-radius: 10px;
     }
 
 }
