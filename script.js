@@ -91,6 +91,24 @@ const characters = [
   "?",
   "/",
 ];
+function validateInputs() {
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Password length should be between 8-128 characters");
+    return false;
+  }
+
+  if (numbers + special > passwordLength) {
+    alert("Special + number count exceeds total length");
+    return false;
+  }
+
+  return true;
+}
+function handleInputChange(e) {
+  passwordLength = parseInt(lengthInput.value) || 15;
+  numbers = parseInt(numbersInput.value) || 3;
+  special = parseInt(specialInput.value) || 3;
+}
 function copyText(e) {
   if (e.target.textContent) {
     navigator.clipboard.writeText(e.target.textContent);
@@ -98,14 +116,13 @@ function copyText(e) {
   }
 }
 const generatePassword = () => {
+  if (!validateInputs()) {
+    return;
+  }
   let result1 = "";
   let result2 = "";
-  let passwordLength = lengthInput.value ? parseInt(lengthInput.value) : 15;
 
-  const numbersCount = numbersInput.value ? parseInt(numbersInput.value) : 0;
-  const specialCount = specialInput.value ? parseInt(specialInput.value) : 0;
-
-  const regularCharsCount = passwordLength - numbersCount - specialCount;
+  const regularCharsCount = passwordLength - numbers - special;
 
   for (i = 0; i < regularCharsCount; i++) {
     idx1 = Math.floor(Math.random() * characters.slice(0, 52).length);
@@ -114,14 +131,14 @@ const generatePassword = () => {
     result1 += characters[idx1];
     result2 += characters[idx2];
   }
-  for (j = 0; j < numbersInput.value; j++) {
+  for (j = 0; j < numbers; j++) {
     idx1 = Math.floor(Math.random() * characters.slice(52, 62).length);
     idx2 = Math.floor(Math.random() * characters.slice(52, 62).length);
 
     result1 += characters[idx1 + 52];
     result2 += characters[idx2 + 52];
   }
-  for (k = 0; k < specialInput.value; k++) {
+  for (k = 0; k < special; k++) {
     idx1 = Math.floor(Math.random() * characters.slice(62).length);
     idx2 = Math.floor(Math.random() * characters.slice(62).length);
 
@@ -136,6 +153,9 @@ const lengthInput = document.querySelector(".length");
 const numbersInput = document.querySelector(".numbers");
 const specialInput = document.querySelector(".special");
 
+const inputsElement = document.querySelector(".inputs");
+inputsElement.addEventListener("input", handleInputChange);
+
 let result1Element = document.querySelector(".result1");
 let result2Element = document.querySelector(".result2");
 
@@ -144,3 +164,7 @@ passwordElement.addEventListener("click", copyText);
 
 const generateBtn = document.getElementById("generate");
 generateBtn.addEventListener("click", generatePassword);
+
+let passwordLength = parseInt(lengthInput.value) || 15;
+let numbers = parseInt(numbersInput.value) || 3;
+let special = parseInt(specialInput.value) || 3;
