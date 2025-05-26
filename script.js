@@ -168,3 +168,23 @@ generateBtn.addEventListener("click", generatePassword);
 let passwordLength = parseInt(lengthInput.value) || 15;
 let numbers = parseInt(numbersInput.value) || 3;
 let special = parseInt(specialInput.value) || 3;
+
+// dark mode logic
+
+let darkmode = localStorage.getItem("darkmode");
+console.log(darkmode);
+
+const body = document.querySelector("body");
+if (darkmode) {
+  body.classList.add("darkmode");
+}
+
+const themeSwitch = document.getElementById("theme-switch");
+themeSwitch.addEventListener("click", () => {
+  body.classList.toggle("darkmode");
+  if (body.classList.contains("darkmode")) {
+    localStorage.setItem("darkmode", "true");
+  } else {
+    localStorage.setItem("darkmode", "false");
+  }
+});
