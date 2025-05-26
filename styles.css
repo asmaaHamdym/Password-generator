@@ -21,7 +21,6 @@
     --secondary-text: #D5D4D8;
     --background: #1F2937;
     --backfround-variant: #273549;
-    --accent: #8B5CF6;
 }
 
 body {
@@ -53,7 +52,7 @@ button,
 h1 {
     font-family: "Karla", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 800;
+    font-weight: 1000;
     font-style: normal;
     font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.2;
@@ -74,7 +73,7 @@ p {
 button {
     font-weight: bold;
     margin: 1.5rem 0;
-    width: 50%;
+    width: 40%;
     background: var(--accent);
     color: var(--background);
     padding: 0.75rem 1.5rem;
@@ -130,4 +129,33 @@ input {
     word-break: break-all;
     flex: 1 1 200px;
     text-align: center;
+}
+
+#theme-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    padding: 0;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-switch svg {
+    fill: var(--accent);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
 }
